@@ -49,3 +49,40 @@
  
  bonus: to compare one commit with its parent  
  - run `git show`
+
+- What are the pros and cons of Git’s automatic merging vs. always doing merges manually? 
+Automatic merging can merge branches automatically and fast. However, if one code block is modified by more than one coders, automatic merging mode cannot accurately tell who to merge. Training a program to identify whether to keep or delete this kind of modifications takes too much time and energy. Luckily, human being are better at this task. They are familiar with the code they write and can fix the conflicts after a small talk with their colleagues.   
+
+- merge manually 
+ - run `git merge branch_name_1 branch_name_2` 
+ - see the message about CONFLICT like this:  
+
+	 ```
+	 Auto-merging game.js
+	CONFLICT (content): Merge conflict in game.js
+	Automatic merge failed; fix conflicts and then commit the result.
+	```  
+ - this message pinpoints the file with conflicts (e.g., `game.js`)
+ - Open this file and resolve the conflicts  
+
+   ![](http://oc35jwp7v.bkt.clouddn.com/mergeConflict.png)
+   
+ - run `git add file_name` and run `git status` to check the file state  
+
+		```  
+		On branch easy-mode
+		All conflicts fixed but you are still merging.
+		  (use "git commit" to conclude merge)
+		
+		Changes to be committed:
+		
+			modified:   game.js
+		
+		Untracked files:
+		  (use "git add <file>..." to include in what will be committed)
+		
+			.Rhistory
+	```
+ - run `git commit` to commit this change
+ 
+
